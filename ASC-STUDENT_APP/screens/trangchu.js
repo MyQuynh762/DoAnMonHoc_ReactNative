@@ -81,8 +81,8 @@ export default function TrangChu({navigation}) {
                 keyExtractor={item => item.id} />
                 <View style={styles.tab}>
                
-                <Pressable style={styles.btn} onPress={() => navigation.navigate("trangchu")} >
-                  <b  style={styles.tabtext1} > Trang chủ</b>
+                <Pressable style={styles.tabtext1} onPress={() => navigation.navigate("trangchu")} >
+                  <b  style={styles.txt1} > Trang chủ</b>
                 </Pressable>
                 <Pressable style={styles.tabtext2} onPress={() => navigation.navigate("nhacnho")} >
                   <b  style={styles.txt1} > Nhắc nhở</b>
