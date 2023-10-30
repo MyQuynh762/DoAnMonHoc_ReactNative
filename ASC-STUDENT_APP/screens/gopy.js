@@ -5,7 +5,7 @@ import {SafeAreaView,View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} fr
 
 export default function GopY() {
     return (
-      
+      <Text></Text>
       
         
     )
