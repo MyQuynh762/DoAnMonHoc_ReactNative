@@ -202,13 +202,17 @@ const styles = StyleSheet.create({
   },
   bd2: {
     height: 70,
-    width: 185,
+    width: 190,
     backgroundColor: "white",
     borderColor: "gray",
     borderWidth: 1,
-    marginLeft: 10,
+    
     borderRadius: 10,
     flexDirection: "row",
+  },
+  bd2Row:{
+    flexDirection:"row",
+    marginLeft: 10
   },
   calendar: {
     height: 60,
