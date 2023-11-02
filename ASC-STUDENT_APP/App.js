@@ -5,6 +5,11 @@ import Home from './screens/home'; // Đảm bảo đường dẫn đúng
 import LoginScreen from './screens/loginScreen'; // Đảm bảo đường dẫn đúng
 import DoiMatKhau from './screens/DoiMatKhau'; // Đảm bảo đường dẫn đúng
 import DiemDanh from './screens2/diemdanh';
+import TrangChu from './screens2/trangchu'; // Đảm bảo đường dẫn đúng
+import XemLich from './screens/xemlich';
+import XemDiem from './screens/xemdiem';
+
+
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -14,6 +19,9 @@ function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home}  options={{ headerShown: false }}/>
         {/* <Stack.Screen name="DoiMatKhau" component={DoiMatKhau} /> */}
+        <Stack.Screen name="TrangChu" component={TrangChu} />
+        <Stack.Screen name="XemLich" component={XemLich} />
+        <Stack.Screen name="XemDiem" component={XemDiem} />
       </Stack.Navigator>
     </NavigationContainer>
         // <Home></Home>

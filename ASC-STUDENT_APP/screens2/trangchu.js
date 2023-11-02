@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 
-function TrangChu() {
+const TrangChu = () => {
   const navigation = useNavigation();
   const DATA = [
     {
@@ -83,39 +83,69 @@ function TrangChu() {
     },
   ];
   
-  //type ItemProps = {title: string};
   
-  const Item = ({ title, icon, backgroundColor }) => (
-    <View style={[styles.item, { backgroundColor }]}>
+
+  const Item = ({ title, icon, backgroundColor, screenName }) => (
+    <Pressable
+      style={[styles.item, { backgroundColor }]}
+      onPress={() => {
+        if (screenName) {
+          navigation.navigate(screenName);
+        }
+      }}
+    >
       <View style={styles.innerItem}>
         <View style={styles.iconContainer}>
           <Image source={icon} style={styles.icon} />
         </View>
         <Text style={styles.title}>{title}</Text>
       </View>
-    </View>
+    </Pressable>
   );
   
   // const navigateToXemDiem = () => {
   //   navigation.navigate('xemdiem'); // Điều hướng đến màn hình "XemDiem"
   // };
   return (
-        
     <SafeAreaView style={styles.container}>
       <View style={styles.v1}>
         <Pressable style={styles.bd1}></Pressable>
-        <Pressable style={styles.bd2}>
-          <Image style={styles.calendar} source={require("../image/calender.PNG")}></Image>
-          <Text style={styles.txtcalendar}>Xem Lịch</Text>
-          <Image style={styles.xemdiem} source={require("../image/xemdiem.PNG")}></Image>
-          <Text style={styles.txtxemdiem}>Xem Điểm</Text>
-        </Pressable>
+        <View style={styles.bd2Row}>
+          <Pressable
+            style={styles.bd2}
+            onPress={() => {
+              
+              navigation.navigate('XemLich');
+            }}
+          >
+            <Image style={styles.calendar} source={require('../image/calender.PNG')}></Image>
+            <Text style={styles.txtcalendar}>Xem Lịch</Text>
+          </Pressable>
+          <Pressable
+            style={styles.bd2}
+            onPress={() => {
+              
+              navigation.navigate('XemDiem');
+            }}
+          >
+            <Image style={styles.xemdiem} source={require('../image/xemdiem.PNG')}></Image>
+            <Text style={styles.txtxemdiem}>Xem Điểm</Text>
+          </Pressable>
+        </View>
       </View>
       <FlatList
         numColumns={4}
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} icon={item.icon} backgroundColor={item.backgroundColor} />}
-        keyExtractor={(item) => item.id} />
+        renderItem={({ item }) => (
+          <Item
+            title={item.title}
+            icon={item.icon}
+            backgroundColor={item.backgroundColor}
+            screenName={item.screenName}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </SafeAreaView>
   );
 }
@@ -126,7 +156,7 @@ export default TrangChu;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center', // Để các mục dữ liệu nằm giữa theo chiều ngang
+    alignItems: 'center', 
   },
   item: {
     padding: 8,
@@ -172,13 +202,13 @@ const styles = StyleSheet.create({
   },
   bd2: {
     height: 70,
-    width: 370,
+    width: 185,
     backgroundColor: "white",
     borderColor: "gray",
     borderWidth: 1,
     marginLeft: 10,
     borderRadius: 10,
-    flexDirection: "row"
+    flexDirection: "row",
   },
   calendar: {
     height: 60,
