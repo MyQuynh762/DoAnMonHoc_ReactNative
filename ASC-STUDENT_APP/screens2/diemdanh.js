@@ -5,7 +5,11 @@ import {SafeAreaView,View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} fr
 
 export default function DiemDanh() {
     return (
-      <Text>Diem danh</Text>
+      <View style={styles.container}>
+       
+      </View>
+
+      
         
     )
 }
@@ -13,8 +17,15 @@ export default function DiemDanh() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    alignItems: "center",
+    backgroundColor:"#f7fcff",
+    fontFamily:"tahoma",
+  
   },
+ 
+  
+   
+    
   
    
     

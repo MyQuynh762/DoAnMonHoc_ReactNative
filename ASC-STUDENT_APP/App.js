@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/home'; // Đảm bảo đường dẫn đúng
 import LoginScreen from './screens/loginScreen'; // Đảm bảo đường dẫn đúng
 import DoiMatKhau from './screens/DoiMatKhau'; // Đảm bảo đường dẫn đúng
+import DiemDanh from './screens2/diemdanh';
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
       </Stack.Navigator>
     </NavigationContainer>
         // <Home></Home>
+        
+       
+
   );
 }
 
