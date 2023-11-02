@@ -1,24 +1,22 @@
 import * as React from 'react';
-import Home from './screens/home';
-import NhacNho from './screens/nhacnho';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './screens/home'; // Đảm bảo đường dẫn đúng
+import LoginScreen from './screens/loginScreen'; // Đảm bảo đường dẫn đúng
+import DoiMatKhau from './screens/DoiMatKhau'; // Đảm bảo đường dẫn đúng
+const Stack = createNativeStackNavigator();
 
-const Stack = createStackNavigator();
-export default function App() {
+function App() {
   return (
-//     <NavigationContainer>
-//      <Stack.Navigator>
- 
-  
-//   </Stack.Navigator> 
-//  </NavigationContainer>
-
-  <Home></Home>
-
-  
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={Home}  options={{ headerShown: false }}/>
+        {/* <Stack.Screen name="DoiMatKhau" component={DoiMatKhau} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+        // <Home></Home>
   );
 }
 
-
-
+export default App;

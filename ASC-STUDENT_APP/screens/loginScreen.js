@@ -34,9 +34,15 @@ export default function Login({navigation}) {
             
          />
   
-        <Pressable style={styles.btn} onPress={() => navigation.navigate("trangchu")} >
-          <b  style={styles.txt1} > ĐĂNG NHẬP</b>
-        </Pressable>
+          <Pressable style={styles.btn} onPress={() => navigation.navigate("Home")} >
+            <b style={styles.txt1}> ĐĂNG NHẬP</b>
+          </Pressable>
+          {/* <Pressable style ={styles.btn} 
+              onPress={()=>{
+              navigation.navigate("Home")
+              }}>
+          <Text style={styles.txt1} >ĐĂNG NHẬP</Text>
+          </Pressable> */}
 
 
         <View style={styles.v2}>
