@@ -100,7 +100,7 @@ const XemLich = () => {
   
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('TrangChu')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <View style={styles.headerContainer}>
           <View style={styles.backButtonContainer}>
             <Icon name="arrow-left" size={20} />

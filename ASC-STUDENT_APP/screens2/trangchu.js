@@ -103,6 +103,7 @@ const TrangChu = () => {
     </Pressable>
   );
   
+  
   // const navigateToXemDiem = () => {
   //   navigation.navigate('xemdiem'); // Điều hướng đến màn hình "XemDiem"
   // };
@@ -148,7 +149,7 @@ const TrangChu = () => {
       />
     </SafeAreaView>
   );
-}
+};
 
 export default TrangChu;
 
