@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {SafeAreaView,Image, Text, View ,StyleSheet,Pressable, FlatList} from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 
 
@@ -13,66 +13,77 @@ const TrangChu = () => {
       title: 'Nhắc nhở',
       icon: require('../Icons/chuong.png'),
       backgroundColor: 'red',
+      screenName: 'NhacNho1',
     },
     {
       id: '2',
       title: 'Phiếu thu',
       icon: require('../Icons/phieuthu.png'),
       backgroundColor: '#7CFC00',
+      screenName: 'PhieuThu',
     },
     {
       id: '3',
       title: 'Công nợ',
       icon: require('../Icons/congno.png'),
       backgroundColor: '#DC143C',
+      screenName: 'CongNo',
     },
     {
       id: '4',
       title: 'Tin tức',
       icon: require('../Icons/tintuc.png'),
       backgroundColor: '#00FFFF',
+      screenName: 'TinTuc',
     },
     {
       id: '5',
       title: 'Chương trình khung',
       icon: require('../Icons/chuongtrinhkhung.png'),
       backgroundColor: '#00FF00',
+      screenName: 'ChuongTrinhKhung',
     },
     {
       id: '6',
       title: 'Thành tích',
       icon: require('../Icons/thanhtich.png'),
       backgroundColor: 'yellow',
+      screenName: 'ThanhTich',
     },
     {
       id: '7',
       title: 'Điểm rèn luyện',
       icon: require('../Icons/diemrenluyen.png'),
       backgroundColor: 'blue',
+      screenName: 'DiemRenLuyen',
     },
     {
       id: '8',
       title: 'Thống kê điểm danh',
       icon: require('../Icons/thongke.png'),
       backgroundColor: 'orange',
+      screenName: 'ThongKeDiemDanh',
     },
     {
       id: '9',
       title: 'Khảo sát',
       icon: require('../Icons/khaosat.png'),
       backgroundColor: '#00008B',
+      screenName: 'KhaoSat',
     },
     {
       id: '10',
       title: 'Quảng cáo',
       icon: require('../Icons/quangcao.png'),
       backgroundColor: '#FFB6C1',
+      screenName: 'QuangCao',
     },
     {
       id: '11',
       title: 'Mẫu đơn',
       icon: require('../Icons/maudon.png'),
       backgroundColor: '#00FFFF',
+      screenName: 'MauDon',
     },
     {
       id: '12',
@@ -103,7 +114,11 @@ const TrangChu = () => {
     </Pressable>
   );
   
-  
+  const navigateToScreen = (screenName) => {
+    if (screenName) {
+      navigation.navigate(screenName);
+    }
+  };
   // const navigateToXemDiem = () => {
   //   navigation.navigate('xemdiem'); // Điều hướng đến màn hình "XemDiem"
   // };
@@ -143,6 +158,7 @@ const TrangChu = () => {
             icon={item.icon}
             backgroundColor={item.backgroundColor}
             screenName={item.screenName}
+            onPress={() => navigateToScreen(item.screenName)}
           />
         )}
         keyExtractor={(item) => item.id}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {StyleSheet,Text, TextInput,Pressable, Image} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { View } from 'react-native-web';
+//import { useNavigation } from '@react-navigation/native';
+
 const TaiKhoan =()=>{
 
   var [email, setEmail] = useState("");
@@ -17,6 +19,9 @@ const ClickButton =()=>{
  
     } 
    
+  };
+  const handleLogout = () => {
+    navigation.navigate('loginScreen');
   };
 
 
@@ -81,8 +86,8 @@ return (
             <Text style={styles.textSc11}>America</Text>
              </View>
 
-             <Pressable style={styles.btn}>
-                <Text style={styles.tbtn}>Đăng Xuất</Text>
+             <Pressable style={styles.btn} onPress={handleLogout}>
+            <Text style={styles.tbtn}>Đăng Xuất</Text>
              </Pressable>
        
        

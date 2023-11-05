@@ -7,7 +7,7 @@ import NhacNho from '../screens2/nhacnho';
 import DiemDanh from '../screens2/diemdanh';
 import GopY from '../screens2/gopy';
 import TaiKhoan from '../screens2/taikhoan';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Sử dụng FontAwesome làm ví dụ
+import Icon from 'react-native-vector-icons/FontAwesome'; // Sử dụng FontAwesome làm icons
 
 const Tab = createBottomTabNavigator();
 

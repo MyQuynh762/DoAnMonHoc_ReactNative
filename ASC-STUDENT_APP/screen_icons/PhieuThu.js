@@ -3,10 +3,10 @@ import {SafeAreaView,View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} fr
 
 
 
-export default function NhacNho() {
+export default function PhieuThu() {
     return (
       <View style={styles.container}>
-          <Text style={styles.t1}>  Nhắc Nhở</Text>
+          <Text style={styles.t1}>  PhieuThu</Text>
       </View>
 
       
