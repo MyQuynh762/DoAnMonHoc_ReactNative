@@ -7,7 +7,7 @@ export default function NhacNho1() {
     return (
       <View style={styles.container}>
         <View style={styles.v1}>
-          <Text style={styles.t1}>  NhacNho1</Text>
+          <Text style={styles.t1}>  Nhắc Nhở</Text>
 
         </View>
          <Image style={styles.img} source={require("../image/nhacnho.PNG")}></Image>

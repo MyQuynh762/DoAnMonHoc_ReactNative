@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView,View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} from 'react-native';
+import {View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} from 'react-native';
 
 
 

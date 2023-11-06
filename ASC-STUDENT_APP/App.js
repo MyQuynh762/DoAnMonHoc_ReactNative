@@ -33,29 +33,29 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home}  options={{ headerShown: false }}/>
-        <Stack.Screen name="TrangChu" component={TrangChu}options={{ headerShown: false }}  />
+        <Stack.Screen name="TrangChu" component={TrangChu}options={{ headerShown: false } }  />
         <Stack.Screen name="XemLich" component={XemLich} options={{ headerShown: false }} />
         <Stack.Screen name="XemDiem" component={XemDiem} options={{ headerShown: false }} />
         
         
         
-        <Stack.Screen name="DoiMatKhau" component={DoiMatKhau}  />
-        <Stack.Screen name="ChuongTrinhKhung" component={ChuongTrinhKhung}  />
-        <Stack.Screen name="CongNo" component={CongNo}  />
-        <Stack.Screen name="DiemRenLuyen" component={DiemRenLuyen}  />
-        <Stack.Screen name="KhaoSat" component={KhaoSat}  />
-        <Stack.Screen name="MauDon" component={MauDon}  />
-        <Stack.Screen name="PhieuThu" component={PhieuThu}  />
-        <Stack.Screen name="QuangCao" component={QuangCao}  />
-        <Stack.Screen name="ThanhTich" component={ThanhTich}  />
-        <Stack.Screen name="ThongKeDiemDanh" component={ThongKeDiemDanh}  />
-        <Stack.Screen name="TinTuc" component={TinTuc}  />
-        <Stack.Screen name="NhacNho1" component={NhacNho1}  />
+        <Stack.Screen name="Đổi password" component={DoiMatKhau}  />
+        <Stack.Screen name="Chương trình khung" component={ChuongTrinhKhung}  />
+        <Stack.Screen name="Công Nợ" component={CongNo}  />
+        <Stack.Screen name="Điểm Rèn luyện" component={DiemRenLuyen}  />
+        <Stack.Screen name="Khảo sát" component={KhaoSat}  />
+        <Stack.Screen name="Mẫu đơn" component={MauDon}  />
+        <Stack.Screen name="Phiếu Thu" component={PhieuThu}  />
+        <Stack.Screen name="Quảng cáo" component={QuangCao}  />
+        <Stack.Screen name="Thành Tích" component={ThanhTich}  />
+        <Stack.Screen name="Thống kê điểm danh" component={ThongKeDiemDanh}  />
+        <Stack.Screen name="Tin Tức" component={TinTuc}  />
+        <Stack.Screen name="Nhắc Nhở" component={NhacNho1}  />
       </Stack.Navigator>
       
     </NavigationContainer>
         
-       
+      // <PhieuThu></PhieuThu>
 
   );
 }
