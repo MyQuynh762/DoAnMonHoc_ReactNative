@@ -55,7 +55,7 @@ function App() {
       
     </NavigationContainer>
         
-      // <PhieuThu></PhieuThu>
+     // <ChuongTrinhKhung></ChuongTrinhKhung>
 
   );
 }
