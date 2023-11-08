@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   v1:{
     height: 50,
     width:390,
-    backgroundColor:"#047bfd"
+    //backgroundColor:"#047bfd"
     
   },
   t1:{

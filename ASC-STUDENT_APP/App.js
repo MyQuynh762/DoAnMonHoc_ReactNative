@@ -10,7 +10,6 @@ import XemLich from './screen_icons/xemlich';
 import XemDiem from './screen_icons/xemdiem';
 
 
-
 import ChuongTrinhKhung from './screen_icons/ChuongTrinhKhung'; 
 import CongNo from './screen_icons/CongNo';
 import DiemRenLuyen from './screen_icons/DiemRenLuyen'; 
@@ -55,7 +54,7 @@ function App() {
       
     </NavigationContainer>
         
-     // <ChuongTrinhKhung></ChuongTrinhKhung>
+     
 
   );
 }

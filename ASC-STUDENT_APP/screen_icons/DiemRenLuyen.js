@@ -6,7 +6,7 @@ import {SafeAreaView,View,FlatList,StyleSheet,Text,StatusBar,Pressable,Image} fr
 export default function DiemRenLuyen() {
     return (
       <View style={styles.container}>
-          <Text style={styles.t1}>  DiemRenLuyen</Text>
+          <Text style={styles.t1}> ThanhTich</Text>
       </View>
 
       
