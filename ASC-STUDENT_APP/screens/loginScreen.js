@@ -87,7 +87,7 @@ export default function Login({navigation}) {
         height:70,
         width:330,
         marginTop:40,
-        marginLeft:30
+        marginLeft:30,
     },
     text1:{
         marginTop:20,

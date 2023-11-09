@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,Image } from 'react-native';
 
 function DoiMatKhau({ navigation }) {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -13,6 +13,8 @@ function DoiMatKhau({ navigation }) {
 
   return (
     <View style={styles.container}>
+
+      <Image source={ require("../image/doimatkhau.PNG")} style={styles.im1}></Image>
       <Text style={styles.label}>Mật khẩu hiện tại:</Text>
       <TextInput
         style={styles.input}
@@ -49,6 +51,13 @@ const styles = StyleSheet.create({
     marginTop: 8,
     paddingLeft: 8,
   },
+  im1:{
+    height: 300,
+    width: 390,
+    
+    //resizeMode: 'contain',
+    //marginTop: 55,
+},
 });
 
 export default DoiMatKhau;
