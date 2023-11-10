@@ -1,13 +1,7 @@
 import React from 'react';
 import {StyleSheet,View, Text, FlatList, Pressable, Image, ScrollView} from 'react-native';
 const DATA = [
-    {
-      id: '1',
-      img:require('../image/tintuc.PNG'),
-      title: 'BẢNG THÔNG BÁO GIẢNG DẠY TRỰC TUYẾN ( từ ngày 6/6/2020)',
-      text:'TIN TỨC SỰ KIỆN',
-      date:'Đăng ngày 6/6/2020'
-    },
+   
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
       img:require('../image/tintuc.PNG'),
@@ -18,7 +12,7 @@ const DATA = [
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
       img:require('../image/tintuc.PNG'),
-      title: 'Hôi thảo Quốc tế:Tự chủ tài chính trong trường Đại học Kinh nghiệm quốc tế ứng dụng vào Việt Nam',
+      title: 'Hôi thảo Quốc tế: Tự chủ tài chính trong trường Đại học Kinh nghiệm quốc tế ứng dụng vào Việt Nam',
       text:'TIN TỨC SỰ KIỆN',
       date:'Đăng ngày 13/2/2020'
     },
@@ -29,13 +23,7 @@ const DATA = [
         text:'TIN TỨC SỰ KIỆN',
         date:'Đăng ngày 13/2/2020'
       },
-      {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        img:require('../image/tintuc.PNG'),
-        title: 'THÔNG TIN GIỜ HỌC',
-        text:'THÔNG TIN GIỜ HỌC',
-        date:'Đăng ngày 22/10/2020'
-      },
+     
   ];
   
   type ItemProps = {title: string};
@@ -65,15 +53,9 @@ const DATA = [
 const TinTuc = ({navigation}) => (
   <View style={styles.container}>
     <View style={styles.v1}>
-        <Pressable style={styles.p1}>
-            <Text style={styles.t1}onPress={() => navigation.navigate("Tin Tức-Sự Kiện")}>Tin tức-Sự Kiện</Text>
-        </Pressable>
-        <Pressable style={styles.p2} onPress={() => navigation.navigate("Nhắc Nhở")}>
-            <Text style={styles.t2}>Nhắc Nhở</Text>
-        </Pressable>
-        <Pressable style={styles.p3} onPress={() => navigation.navigate("Thông tin giờ học")}>
-            <Text style={styles.t3}>Thông tin giờ học</Text>
-        </Pressable>
+    <Image style={styles.img1} source={require('../image/tinttucbig.PNG') }></Image>
+            <Text style={styles.t1}>BẢNG ĐĂNG KÍ GIẢNG DẠY TRỰC TUYẾN (từ ngày 06/04/2020)</Text>
+            <Text style={styles.t2}>Đăng ngày 01/04/2020</Text>
     </View>
 
     <FlatList
@@ -185,7 +167,22 @@ const styles = StyleSheet.create({
   date:{
     color:"gray",
     marginLeft: 100
-  }
+  },
+  v1:{
+    borderBottomColor:"gray",
+    borderBottomWidth: 1,
+
+  },
+  img1:{
+    height: 200,
+    width: 390
+  },
+  t1:{
+    fontSize:20
+  },
+  t2:{
+    marginLeft: 200
+  },
 });
 
 export default TinTuc;

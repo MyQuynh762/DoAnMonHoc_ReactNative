@@ -22,6 +22,8 @@ import ThanhTich from './screen_icons/ThanhTich';
 import ThongKeDiemDanh from './screen_icons/ThongKeDiemDanh'; 
 import TinTuc from './screen_icons/TinTuc';
 import NhacNho1 from './screen_icons/nhacnho1';
+import TinTucSuKien from './screen_icons/TinTucSuKien';
+import ThongTinGioHoc from './screen_icons/ThongTinGioHoc';
 
 
 
@@ -50,10 +52,15 @@ function App() {
         <Stack.Screen name="Thống kê điểm danh" component={ThongKeDiemDanh}  />
         <Stack.Screen name="Tin Tức" component={TinTuc}  />
         <Stack.Screen name="Nhắc Nhở" component={NhacNho1}  />
+
+        
+        <Stack.Screen name="Tin Tức-Sự Kiện" component={TinTucSuKien}  />
+        <Stack.Screen name="Thông tin giờ học" component={ThongTinGioHoc}  />
+
       </Stack.Navigator>
       
-    </NavigationContainer>
-        
+    // </NavigationContainer>
+       
      
 
   );
