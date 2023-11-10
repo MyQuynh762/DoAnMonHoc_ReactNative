@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: 'white',
     borderBottomColor:"gray",
-    borderWidth:1,
+    borderBottomWidth: 1,
     padding: 10,
    // marginVertical: 8,
     //marginHorizontal: 16,
