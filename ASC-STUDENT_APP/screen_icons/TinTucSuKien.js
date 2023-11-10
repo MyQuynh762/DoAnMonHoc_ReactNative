@@ -26,7 +26,7 @@ const DATA = [
      
   ];
   
-  type ItemProps = {title: string};
+  //type ItemProps = {title: string};
   
   const Item = ({title, img, text, date}) => (
     <ScrollView>

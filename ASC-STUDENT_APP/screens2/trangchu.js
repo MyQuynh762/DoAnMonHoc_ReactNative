@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SafeAreaView,Image, Text, View ,StyleSheet,Pressable, FlatList} from 'react-native';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 
 
