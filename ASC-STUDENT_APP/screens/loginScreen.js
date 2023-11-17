@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Pressable, Modal, FlatList, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, TextInput, Pressable, Modal, FlatList, TouchableOpacity, Alert } from 'react-native';
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState('');
@@ -8,6 +8,7 @@ export default function Login({ navigation }) {
   const [showPassword, setShowPassword] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [schoolSelected, setSchoolSelected] = useState(false);
+  const [error, setError] = useState(null);
 
   const schools = [
     { id: '1', 
@@ -60,6 +61,18 @@ export default function Login({ navigation }) {
     },
   ];
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('blur', () => {
+      setUsername('');
+      setPassword('');
+      setSelectedSchool('');
+      setSchoolSelected(false);
+      setError(null);
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   const openDropdown = () => {
     setModalVisible(true);
   };
@@ -70,11 +83,41 @@ export default function Login({ navigation }) {
     setModalVisible(false);
   };
 
-  const handleLogin = () => {
-    if (schoolSelected && username === '1234' && password === '1234') {
-      navigation.navigate('Home');
-    } else {
-      alert('Vui lòng chọn trường và kiểm tra tài khoản/mật khẩu.');
+  const handleLogin = async () => {
+    let loginError = null;
+
+    if (!selectedSchool) {
+      loginError = 'Vui lòng chọn trường.';
+    } else if (!username) {
+      loginError = 'Vui lòng nhập tên người dùng.';
+    } else if (!password) {
+      loginError = 'Vui lòng nhập mật khẩu.';
+    }
+
+    if (!loginError) {
+      try {
+        const response = await fetch('https://65576266bd4bcef8b61287d2.mockapi.io/User');
+        const users = await response.json();
+
+        const user = users.find(
+          (user) => user.username === username && user.password === password && user.school === selectedSchool
+        );
+
+        if (user) {
+          navigation.navigate('Home');
+        } else {
+          loginError = 'Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại.';
+        }
+      } catch (fetchError) {
+        console.error('Lỗi khi đăng nhập:', fetchError);
+        loginError = 'Đã có lỗi xảy ra. Vui lòng thử lại sau.';
+      }
+    }
+
+    setError(loginError);
+
+    if (loginError) {
+      Alert.alert('Lỗi đăng nhập', loginError);
     }
   };
 
@@ -100,9 +143,8 @@ export default function Login({ navigation }) {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                
                 <FlatList
-                  style={{ maxHeight: 300 }} 
+                  style={{ maxHeight: 300 }}
                   data={schools}
                   keyExtractor={(item) => item.id}
                   renderItem={({ item }) => (
@@ -115,8 +157,6 @@ export default function Login({ navigation }) {
                     </TouchableOpacity>
                   )}
                 />
-
-                
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}
@@ -161,6 +201,12 @@ export default function Login({ navigation }) {
           <Text style={styles.footerText}>Điều khoản sử dụng và chính sách ASC</Text>
           <Text style={styles.footerText}>asc.com.vn</Text>
         </View>
+        
+        {error && (
+          <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+          </View>
+        )}
       </View>
     </View>
   );
@@ -324,5 +370,16 @@ const styles = StyleSheet.create({
     fontFamily: 'arial',
     fontSize: 17,
     color: 'gray',
+  },
+  errorContainer: {
+    marginTop: 20,
+    paddingHorizontal: 20,
+    backgroundColor: '#FF6363',
+    borderRadius: 10,
+    padding: 10,
+  },
+  errorText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
