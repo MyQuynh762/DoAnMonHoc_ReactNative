@@ -1,165 +1,70 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Pressable, TextInput, FlatList, StyleSheet } from 'react-native';
 
-const DATA = [
-  {
-    id: '1',
-    title: 'Số phiếu: 740036',
-    date:'27/07/2023 15:53',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'9.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '2',
-    title: 'Số phiếu: 709804',
-    date:'29/05/2023 12:47',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'2.700.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '3',
-    title: 'Số phiếu: 1235560',
-    date:'26/09/2023 13:50',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'21.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '4',
-    title: 'Số phiếu: 790036',
-    date:'20/07/2023 15:53',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'11.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '5',
-    title: 'Số phiếu: 778036',
-    date:'30/12/2022 10:53',
-    who:'Phạm Trường Quân',
-    tien:'Số tiền',
-    gia:'9.000.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '6',
-    title: 'Số phiếu: 740036',
-    date:'27/07/2022 15:53',
-    who:'Phạm Quế trân',
-    tien:'Số tiền',
-    gia:'9.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '7',
-    title: 'Số phiếu: 740036',
-    date:'27/07/2023 15:53',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'9.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '8',
-    title: 'Số phiếu: 740036',
-    date:'13/10/2022 15:53',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'9.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '9',
-    title: 'Số phiếu: 740036',
-    date:'20/01/2022 14:53',
-    who:'Ngân hàng VietCombank',
-    tien:'Số tiền',
-    gia:'15.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-  {
-    id: '10',
-    title: 'Số phiếu: 740036',
-    date:'27/09/2021 08:50',
-    who:'Nguyễn Ngọc Trinh',
-    tien:'Số tiền',
-    gia:'22.900.000',
-    note:'Xem Hóa đơn điện tử'
-  },
-];
+const url = 'https://654afc225b38a59f28ee6878.mockapi.io/PhieuThu';
 
-type ItemProps = {title: string};
+const PhieuThu = ({navigation}) => {
+  const [data, setData] = useState([]);
+ 
 
-const Item = ({title,date, who, tien, gia, note}: ItemProps) => (
-  <View style={styles.item}>
-    <View style={styles.v1}>
-    <b style={styles.title}>{title}</b>
-    <b style={styles.date}>{date}</b>
+  useEffect(() => {
+    fetchGhiChu();
+  }, []);
+
+  const fetchGhiChu = async () => {
+    try {
+      const response = await fetch(url);
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error('Error fetching notes:', error);
+    }
+  };
+
+  const renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <View style={styles.v1}>
+    <Text style={styles.flat}>{item.soPhieu}</Text>
+    <Text style={styles.date}>{item.date}</Text>
+    
     </View>
     <View style={styles.v2}>
-      <b style={styles.who}>{who}</b>
+    <Text style={styles.who}>{item.who}</Text>
+     
       </View>
     <View style={styles.v3}>
-    <b style={styles.tien}>{tien}</b>
-    <b style={styles.gia}>{gia}</b>
+    <Text style={styles.gia}>{item.soTien}</Text>
     </View>
-    <View style={styles.v4}>
-      <b style={styles.note}>{note}</b>
+    <Pressable style={styles.v4} onPress={() => navigation.navigate("Quay lại")}>
+    <Text style={styles.note}>{item.note}</Text>
+    </Pressable>
     </View>
-    
-  </View>
-);
+  );
 
-const PhieuThu = () => {
   return (
-    <SafeAreaView style={styles.container}>
+   
       <FlatList
-        data={DATA}
-        renderItem={({item}) =>
-         <Item 
-         title={item.title}
-         date={item.date}
-         who={item.who}
-         tien={item.tien}
-         gia={item.gia}
-         note={item.note}
-         />}
-        keyExtractor={item => item.id}
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
       />
-    </SafeAreaView>
+   
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   fontSize:13
+    padding: 16,
+    height:100,
+    width: 370,
+    borderWidth: 1,
+    borderColor:'gray',
+    marginLeft: 10,
+    borderRadius: 20,
+    marginTop: 5
   },
-  item: {
-    backgroundColor: "white",
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    height: 140,
-    fontFamily:"tahoma",
-    borderRadius:10,
-    borderColor:"gray",
-    borderWidth:1
-    
-  },
+ 
   v1:{
     flexDirection:"row"
   },
@@ -184,7 +89,13 @@ const styles = StyleSheet.create({
   gia:{
     marginLeft:190
   },
-
+  note:{
+    color:'blue',
+    textAlign:'center'
+  }
+  
+ 
+ 
 });
 
 export default PhieuThu;

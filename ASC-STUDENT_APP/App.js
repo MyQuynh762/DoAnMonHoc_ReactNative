@@ -24,6 +24,8 @@ import TinTuc from './screen_icons/TinTuc';
 import NhacNho1 from './screen_icons/nhacnho1';
 import TinTucSuKien from './screen_icons/TinTucSuKien';
 import ThongTinGioHoc from './screen_icons/ThongTinGioHoc';
+import xemchiTietHoaDon from './screens2/xemchiTietHoaDon';
+
 
 
 
@@ -56,10 +58,13 @@ function App() {
         
         <Stack.Screen name="Tin Tức-Sự Kiện" component={TinTucSuKien}  />
         <Stack.Screen name="Thông tin giờ học" component={ThongTinGioHoc}  />
+        <Stack.Screen name="Quay lại" component={xemchiTietHoaDon}  options={{ headerShown: true}} />
 
       </Stack.Navigator>
       
      </NavigationContainer>
+  
+    
        
      
 
