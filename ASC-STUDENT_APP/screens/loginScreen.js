@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Pressable, Modal, FlatList, TouchableOpacity, Alert } from 'react-native';
-
+import Feedback from '../screens/Feedback';
+import ForgotPassword from '../screens/ForgotPassword'; 
 export default function Login({ navigation }) {
+  
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [selectedSchool, setSelectedSchool] = useState('');
@@ -120,6 +123,14 @@ export default function Login({ navigation }) {
       Alert.alert('Lỗi đăng nhập', loginError);
     }
   };
+  const handleForgotPassword = () => {
+    
+    navigation.navigate('ForgotPassword');
+  };
+  const handleFeedback = () => {
+    
+    navigation.navigate('Feedback');
+  };
 
   return (
     <View style={styles.container}>
@@ -193,13 +204,13 @@ export default function Login({ navigation }) {
         </Pressable>
 
         <View style={styles.forgotPasswordContainer}>
-          <Text style={styles.forgotPasswordText}>Quên mật khẩu ?</Text>
-          <Text style={styles.feedbackText}>Góp ý - Phản hồi</Text>
+        <Text style={styles.forgotPasswordText} onPress={handleForgotPassword}>Quên mật khẩu ?</Text>
+        <Text style={styles.feedbackText} onPress={handleFeedback}>Góp ý - Phản hồi</Text>
         </View>
 
         <View style={styles.footerContainer}>
-          <Text style={styles.footerText}>Điều khoản sử dụng và chính sách ASC</Text>
-          <Text style={styles.footerText}>asc.com.vn</Text>
+            <Text style={styles.footerText}>Điều khoản sử dụng và chính sách ASC</Text>
+            <Text style={styles.footerText}>asc.com.vn</Text>
         </View>
         
         {error && (
@@ -383,3 +394,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+

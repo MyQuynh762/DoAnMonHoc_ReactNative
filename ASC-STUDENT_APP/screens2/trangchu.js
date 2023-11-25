@@ -163,6 +163,8 @@ const TrangChu = () => {
         )}
         keyExtractor={(item) => item.id}
       />
+
+      
     </SafeAreaView>
   );
 };

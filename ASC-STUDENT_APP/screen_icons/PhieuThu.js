@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, TextInput, FlatList, StyleSheet } from 'react-native';
 
-const url = 'https://654afc225b38a59f28ee6878.mockapi.io/PhieuThu';
+const url = 'https://65576266bd4bcef8b61287d2.mockapi.io/Phieuthu';
 
 const PhieuThu = ({navigation}) => {
   const [data, setData] = useState([]);

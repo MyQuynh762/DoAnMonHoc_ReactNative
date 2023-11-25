@@ -4,11 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './screens/home';
 import LoginScreen from './screens/loginScreen'; 
-
+import Feedback from './screens/Feedback';
 import TrangChu from './screens2/trangchu'; 
 import XemLich from './screen_icons/xemlich';
 import XemDiem from './screen_icons/xemdiem';
-
+import ForgotPassword from './screens/ForgotPassword';
 
 import ChuongTrinhKhung from './screen_icons/ChuongTrinhKhung'; 
 import CongNo from './screen_icons/CongNo';
@@ -39,8 +39,8 @@ function App() {
         <Stack.Screen name="TrangChu" component={TrangChu}options={{ headerShown: false } }  />
         <Stack.Screen name="XemLich" component={XemLich} options={{ headerShown: false }} />
         <Stack.Screen name="XemDiem" component={XemDiem} options={{ headerShown: false }} />
-        
-        
+        <Stack.Screen name="Feedback" component={Feedback} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         
         <Stack.Screen name="Đổi password" component={DoiMatKhau}  />
         <Stack.Screen name="Chương trình khung" component={ChuongTrinhKhung}  />
